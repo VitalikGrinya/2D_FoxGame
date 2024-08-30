@@ -30,22 +30,7 @@ public class HealthBar : MonoBehaviour
     private void SetSliderValue()
     {
         _bar.maxValue = _player.MaxHealth;
-
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
-        _coroutine = StartCoroutine(Smoothly());
-    }
-
-    private IEnumerator Smoothly()
-    {
-        var wait = new WaitForSeconds(_waitValue);
-
-        while(_bar.value != _player.CurrentHealth)
-        {
-            _bar.value = Mathf.MoveTowards(_bar.value, _player.CurrentHealth, _interpolationValue);
-            yield return wait;
-        }
+        _bar.value = Mathf.Lerp(_bar.value, _player.CurrentHealth, _interpolationValue);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
