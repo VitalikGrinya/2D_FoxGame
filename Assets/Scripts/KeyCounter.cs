@@ -23,6 +23,6 @@ public class KeyCounter : MonoBehaviour
     {
         CurrentKeysCount++;
 
-        _keyScore.text = CurrentKeysCount.ToString() + "/5";
+        _keyScore.text = "Keys " + CurrentKeysCount.ToString() + "/5";
     }
 }
