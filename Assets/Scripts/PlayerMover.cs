@@ -30,14 +30,6 @@ public class PlayerMover : MonoBehaviour
         AnimateMovement();
     }
 
-    public void Reset()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
-    }
-
     private void OnEnable()
     {
         _groundChecker.IsGrounded += SetGround;
